@@ -116,72 +116,57 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2>Technologies Worked On</h2></div>
-            <div class="col-lg-8 col-lg-offset-5">
-
-                <div class="accordion" id="accordion2">
-                    <div class="accordion-group" style="font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle cl-effect-18" data-toggle="collapse" title="Click to expand" data-parent="#accordion2" href="#collapseOne"><span style="font-size: 250%;">C#.NET</span><i class="fa fa-chevron-down" style="font-size: 250%;"></i></a>
-                        </div>
-                        <div id="collapseOne" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <ul class="list-group">
+                <div class="col-lg-8 col-lg-offset-5">
+            <nav style="font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif; color:#42dca3;">
+                <dl class="accordion-js">
+                    <dt class="accordion-element__term"><span style="font-size: 250%;">C#.NET</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></dt>
+                    <div>
+                        <dd>
+                            <ul class="list-group">
                                     <li class="list-group-item list-group-item-info">WinForm</li>
                                     <li class="list-group-item list-group-item-info">ADO.NET</li>
                                     <li class="list-group-item list-group-item-info">WCF & WebAPI</li>
                                     <li class="list-group-item list-group-item-info">ASP.NET</li>
                                     <li class="list-group-item list-group-item-info">ASP.NET MVC</li>
                                     <li class="list-group-item list-group-item-info">Entity Framework 5.x & 6.x</li>
-                                </ul>
-                            </div>
-                        </div>
+                             </ul>
+                        </dd>
                     </div>
-                    <div class="accordion-group" style="font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" title="Click to expand" data-parent="#accordion2" href="#collapseTwo"><span style="font-size: 250%;">Java</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></a>
-                        </div>
-                        <div id="collapseTwo" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <ul class="list-group">
+                    <dt class="accordion-element__term"><span style="font-size: 250%;">Java</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></dt>
+                    <div>
+                        <dd>
+                              <ul class="list-group">
                                     <li class="list-group-item list-group-item-info">Swing</li>
                                     <li class="list-group-item list-group-item-info">Spring - MVC</li>
                                     <li class="list-group-item list-group-item-info">Hibernate</li>
                                     <li class="list-group-item list-group-item-info">EJB - J2EE</li>
                                 </ul>
-                            </div>
-                        </div>
+                        </dd>
                     </div>
-
-                    <div class="accordion-group" style="font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" title="Click to expand" data-parent="#accordion2" href="#collapseThree"><span style="font-size: 250%;">PHP</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></a>
-                        </div>
-                        <div id="collapseThree" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <ul class="list-group">
+                    <dt class="accordion-element__term"><span style="font-size: 250%;">PHP</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></dt>
+                    <div>
+                        <dd>
+                             <ul class="list-group">
                                     <li class="list-group-item list-group-item-info">Vanila PHP</li>
                                     <li class="list-group-item list-group-item-info">Laravel MVC Framework</li>
                                 </ul>
-                            </div>
-                        </div>
+                        </dd>
                     </div>
-
-                    <div class="accordion-group" style="font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" title="Click to expand" data-parent="#accordion2" href="#collapseFour"><span style="font-size: 250%;">Other</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></a>
-                        </div>
-                        <div id="collapseFour" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <ul class="list-group">
+                     <dt class="accordion-element__term"><span style="font-size: 250%;">Other</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></dt>
+                    <div>
+                        <dd>
+                              <ul class="list-group">
                                     <li class="list-group-item list-group-item-info">Android</li>
                                     <li class="list-group-item list-group-item-info">Angular 2.0</li>
 
                                 </ul>
-                            </div>
-                        </div>
+                        </dd>
                     </div>
+                </dl>
+            </nav>
                 </div>
-            </div>
+
+        </div>
         </div>
     </section>
 
@@ -251,12 +236,41 @@
 
     <!-- Plugin JavaScript -->
     <script src="./js/jquery.easing.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.velocity/0.4.1/jquery.velocity.min.js"></script>
 
 
     <!-- Custom Theme JavaScript -->
     <script src="./js/main.js"></script>
 
+    <script>
+        (function($) {
+  'use strict';
 
+  var  $accordion = $('.accordion-js');
+  $accordion.find('div').css({ display : 'none', overflow : 'hidden'});
+  
+  $accordion.children('dt').click(function() {
+    var $this = $(this);
+    var $targetContainer =  $this.next('div');
+    var $targetDescription =  $targetContainer.find('dd').first();
+    $('.accordion-element__term').removeClass('active');
+    $this.toggleClass('active');
+    
+    if(!$targetDescription.hasClass('active')) {
+      $targetContainer.css('display', 'block');
+      $targetDescription.css('margin-top', -$targetDescription.height());
+      $targetDescription.velocity({ marginTop: 0}, { duration: 350 });
+      $targetDescription.addClass('active');
+    } 
+    else {
+      $targetDescription.velocity({ marginTop: -$targetDescription.height()}, { duration: 350 });
+      $targetDescription.removeClass('active');
+    }
+    return false;
+  });
+})( jQuery );
+
+    </script>
 </body>
 
 </html>
