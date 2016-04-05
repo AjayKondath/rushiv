@@ -1,0 +1,58 @@
+ .form_hover {
+        padding: 0px;
+        position: relative;
+        overflow: hidden;
+        height: 360px;
+    }
+
+        .form_hover:hover .header {                 
+            opacity: 1;
+               transform:translateY(-297px);
+            -webkit-transform:translateY(-297px);
+            -moz-transform:translateY(-297px);
+            -ms-transform:translateY(-297px);
+            -o-transform:translateY(-297px);
+        }
+
+        .form_hover img {
+            z-index: 4;
+        }
+
+        .form_hover .header {
+            position: absolute;
+            top: 290px;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .form_hover .blur {
+            height: 240px;
+            z-index: 5;
+            position: absolute;
+            width: 100%;
+        }
+
+        .form_hover .caption-text {
+            z-index: 10;
+            color: #fff;
+            position: absolute;
+            height: 360px;
+            text-align: center;
+            top: -20px;
+            width: 100%;
+        }
+        @media only screen and (max-device-width: 480px) {
+              .form_hover:hover .header {                 
+                    opacity: 1;
+                    transform: none;
+                    -webkit-transform: none;
+                    -moz-transform: none;
+                    -ms-transform: none;
+                    -o-transform: none;
+        }
+
+	}
