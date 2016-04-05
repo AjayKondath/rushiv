@@ -1,4 +1,4 @@
- .form_hover {
+ /*.form_hover {
         padding: 0px;
         position: relative;
         overflow: hidden;
@@ -46,7 +46,7 @@
             width: 100%;
         }
         @media only screen and (max-device-width: 480px) {
-              .form_hover:hover .header {                 
+              .form_hover:active .header {                 
                     opacity: 1;
                     transform: none;
                     -webkit-transform: none;
@@ -54,5 +54,17 @@
                     -ms-transform: none;
                     -o-transform: none;
         }
+             .form_hover .header {
+            position: absolute;
+            top: 290px;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
 
-	}
+	}*/
+    
+ 
