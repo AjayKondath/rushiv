@@ -49,7 +49,7 @@
               .form_hover:hover .header {                 
                     opacity: 1;
                     transform: none;
-                    -webkit-transform: -webkit-none;
+                    -webkit-transform: none;
                     -moz-transform: none;
                     -ms-transform: none;
                     -o-transform: none;
