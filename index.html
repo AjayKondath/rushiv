@@ -11,7 +11,8 @@
     <meta property="og:url" content="http://rushiv.xyz/">
     <meta property="og:site_name" content="Web Sanctuary" />
     <meta property="og:title" content="Rushikesh Vyas | Web Sanctuary" />
-    <meta property="og:description" content="Welcome to My personal website where you can find out more about me, isn't it awesome! "/>
+    <meta property="og:description" content="Welcome to My personal website where you can find out more about me, isn't it awesome! "
+    />
     <meta property="og:image" content="http://www.rushiv.xyz/img/up-3.jpg">
     <meta property="og:type" content="website" />
 
@@ -24,11 +25,11 @@
 
     <!-- Custom CSS -->
     <link href="./css/main.css" rel="stylesheet">
-   
+
 
     <!-- Custom Fonts -->
     <link href="./font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  
+
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
@@ -115,13 +116,11 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2>Technologies Worked On</h2></div>
-                <div class="col-lg-8 col-lg-offset-5">
-            <nav style="font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif; color:#42dca3;">
-                <dl class="accordion-js">
-                    <dt class="accordion-element__term"><span style="font-size: 250%;">C#.NET</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></dt>
-                    <div>
-                        <dd>
-                            <ul class="list-group">
+            <div class="col-lg-8 col-lg-offset-5">
+                <div id="accordion">
+                    <h4 class="accordion-toggle">C#.NET</h4>
+                    <div class="accordion-content default">
+                         <ul class="list-group">
                                     <li class="list-group-item list-group-item-info">WinForm</li>
                                     <li class="list-group-item list-group-item-info">ADO.NET</li>
                                     <li class="list-group-item list-group-item-info">WCF & WebAPI</li>
@@ -129,41 +128,32 @@
                                     <li class="list-group-item list-group-item-info">ASP.NET MVC</li>
                                     <li class="list-group-item list-group-item-info">Entity Framework 5.x & 6.x</li>
                              </ul>
-                        </dd>
                     </div>
-                    <dt class="accordion-element__term"><span style="font-size: 250%;">Java</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></dt>
-                    <div>
-                        <dd>
-                              <ul class="list-group">
+                    <h4 class="accordion-toggle">Java</h4>
+                    <div class="accordion-content">
+                         <ul class="list-group">
                                     <li class="list-group-item list-group-item-info">Swing</li>
                                     <li class="list-group-item list-group-item-info">Spring - MVC</li>
                                     <li class="list-group-item list-group-item-info">Hibernate</li>
                                     <li class="list-group-item list-group-item-info">EJB - J2EE</li>
                                 </ul>
-                        </dd>
                     </div>
-                    <dt class="accordion-element__term"><span style="font-size: 250%;">PHP</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></dt>
-                    <div>
-                        <dd>
-                             <ul class="list-group">
+                    <h4 class="accordion-toggle">PHP</h4>
+                    <div class="accordion-content">
+                         <ul class="list-group">
                                     <li class="list-group-item list-group-item-info">Vanila PHP</li>
                                     <li class="list-group-item list-group-item-info">Laravel MVC Framework</li>
                                 </ul>
-                        </dd>
                     </div>
-                     <dt class="accordion-element__term"><span style="font-size: 250%;">Other</span> <i class="fa fa-chevron-down" style="font-size: 250%;"></i></dt>
-                    <div>
-                        <dd>
-                              <ul class="list-group">
+                    <h4 class="accordion-toggle">Other</h4>
+                    <div class="accordion-content">
+                          <ul class="list-group">
                                     <li class="list-group-item list-group-item-info">Android</li>
                                     <li class="list-group-item list-group-item-info">Angular 2.0</li>
-
                                 </ul>
-                        </dd>
                     </div>
-                </dl>
-            </nav>
                 </div>
+            </div>
 
         </div>
         </div>
@@ -235,41 +225,26 @@
 
     <!-- Plugin JavaScript -->
     <script src="./js/jquery.easing.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.velocity/0.4.1/jquery.velocity.min.js"></script>
+
 
 
     <!-- Custom Theme JavaScript -->
     <script src="./js/main.js"></script>
-
     <script>
-        (function($) {
-  'use strict';
+        $(document).ready(function($) {
+    $('#accordion').find('.accordion-toggle').click(function(){
 
-  var  $accordion = $('.accordion-js');
-  $accordion.find('div').css({ display : 'none', overflow : 'hidden'});
-  
-  $accordion.children('dt').click(function() {
-    var $this = $(this);
-    var $targetContainer =  $this.next('div');
-    var $targetDescription =  $targetContainer.find('dd').first();
-    $('.accordion-element__term').removeClass('active');
-    $this.toggleClass('active');
-    
-    if(!$targetDescription.hasClass('active')) {
-      $targetContainer.css('display', 'block');
-      $targetDescription.css('margin-top', -$targetDescription.height());
-      $targetDescription.velocity({ marginTop: 0}, { duration: 350 });
-      $targetDescription.addClass('active');
-    } 
-    else {
-      $targetDescription.velocity({ marginTop: -$targetDescription.height()}, { duration: 350 });
-      $targetDescription.removeClass('active');
-    }
-    return false;
+        $(this).hide();
+      //Expand or collapse this panel
+      $(this).next().slideToggle('fast');
+
+      //Hide the other panels
+      $(".accordion-content").not($(this).next()).slideUp('fast');
+
+    });
   });
-})( jQuery );
-
     </script>
+
 </body>
 
 </html>
