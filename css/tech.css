@@ -8,7 +8,7 @@
         .form_hover:hover .header {                 
             opacity: 1;
                transform: translateY(-297px);
-            -webkit-transform: -webkit-translateY(-297px);
+            -webkit-transform: translateY(-297px);
             -moz-transform: translateY(-297px);
             -ms-transform: translateY(-297px);
             -o-transform: translateY(-297px);
